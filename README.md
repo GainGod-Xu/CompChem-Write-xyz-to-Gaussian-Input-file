@@ -6,4 +6,4 @@ chmod +x read_xyz_write_gaussian_input.py
 (1) Read xyz and write the structure into an input file for any calculation:   
 read_xyz_write_gaussian_input.py molecule_A.xyz/chk  
 (2) Please find the input file named as molecule_A.com
-(3) This is an iteractive script, but doesn't take functional and basis set as on varaibles.  
+(3) This is an iteractive script, but doesn't take functional and basis set as varaibles.  
