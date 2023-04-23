@@ -39,7 +39,7 @@ else:
 ifs = open(ifs_name, 'r')
 
 ### create a list for coordinates, then read all lines(atom and xyz) into this list
-readxyz = input("if you want to load xyz then type 1; if not type 0! \n")
+readxyz = input("if you want to load xyz then type 1; if load chk file type 0! \n")
 
 if int(readxyz): 
    xyz_cor=[]

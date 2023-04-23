@@ -1,6 +1,7 @@
 %mem=120gb 
 %nprocshared=28 
-%chk=A_freq.chk
+%chk=A_opt.chk
+#p B3lyp/gen opt 
 
 comment  
 
