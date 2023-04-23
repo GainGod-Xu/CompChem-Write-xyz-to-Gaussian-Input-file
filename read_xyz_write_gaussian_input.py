@@ -1,35 +1,37 @@
-#!/usr/bin/python
+#!/usr/bin/python3
 import os,math,sys
 
 ## Please tell me your jobtype
-jobtype = str(input("please input your job type(TS? opt? freq? scan? irc?) with \"  \" \n"))
+jobtype = int(input("please input your job type(1.TS? 2.opt? 3.freq? 4.scan? 5.irc?) with \n"))
 
 ### the following two lines read your .xyz file and store its name 
 ifs_name= sys.argv[1]
 
 ## generate new names for chk and com file according to the jobtypes
-if jobtype == 'TS':
+if jobtype == 1:
    ofs_name=ifs_name[:-4]+'_TS.com'
    chk_name=ifs_name[:-4]+'_TS.chk'
 
-elif jobtype == 'opt':
+elif jobtype == 2:
    ofs_name=ifs_name[:-4]+'_opt.com'
    chk_name=ifs_name[:-4]+'_opt.chk'
 
-elif jobtype == 'freq':
+elif jobtype == 3:
    ofs_name=ifs_name[:-4]+'_freq.com'
    chk_name=ifs_name[:-4]+'_freq.chk'
 
-elif jobtype == 'scan':
+elif jobtype == 4:
    ofs_name=ifs_name[:-4]+'_scan.com'
    chk_name=ifs_name[:-4]+'_scan.chk'
 
-elif jobtype == 'irc':
+elif jobtype == 5:
    ofs_name=ifs_name[:-4]+'_irc.com'
    chk_name=ifs_name[:-4]+'_irc.chk'
 
 else:
-   pass
+   print("no such xyz/chk file ")
+   sys.exit()
+   
  
 ### open your xyz file 
 ifs = open(ifs_name, 'r')
