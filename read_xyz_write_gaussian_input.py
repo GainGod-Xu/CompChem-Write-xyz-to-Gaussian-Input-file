@@ -27,7 +27,7 @@ elif jobtype == 4:
 elif jobtype == 5:
    ofs_name=ifs_name[:-4]+'_irc.com'
    chk_name=ifs_name[:-4]+'_irc.chk'
-elif jobtype == 5:
+elif jobtype == 6:
    ofs_name=ifs_name[:-4]+'_sp.com'
    chk_name=ifs_name[:-4]+'_sp.chk'
 else:
@@ -91,6 +91,13 @@ elif jobtype == 5:
         ofs.write('#p b3lyp/gen irc=(calcfc,MaxPoints=20,stepsize=10) nosym  \n')
      else:
         ofs.write('#p b3lyp/gen irc=(ReadCartesianFC,MaxPoints=20,stepsize=10) nosym geom=check guess=read \n')
+
+elif jobtype == 6:
+     if int(readxyz):
+        ofs.write('#p b3lyp/gen sp \n')
+     else:
+        ofs.write('#p b3lyp/gen sp geom=check guess=read\n')
+
 else:
    pass
 
