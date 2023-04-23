@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-import os,math,sys
+import os,math,sys, shutil
 
 ## Please tell me your jobtype
 jobtype = int(input("please input your job type(1.TS? 2.opt? 3.freq? 4.scan? 5.irc? 6.sp?) with \n"))
@@ -111,10 +111,13 @@ ofs.write('\n')
 ### write your charge and multiplicity
 ofs.write('0 2 \n')
 
-### write all lines from your list into com file.
+### write all lines from your list into com file if load xyz; 
+### otherwise copy check file and rename it.
 if int(readxyz):
    for line in xyz_cor:
        ofs.write(str(line))
+else:
+   shutil.copy(ifs_name, chk_name)
 
 ### write an space line
 ofs.write('\n')
