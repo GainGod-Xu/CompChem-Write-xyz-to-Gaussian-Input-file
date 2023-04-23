@@ -2,7 +2,7 @@
 import os,math,sys
 
 ## Please tell me your jobtype
-jobtype = int(input("please input your job type(1.TS? 2.opt? 3.freq? 4.scan? 5.irc?) with \n"))
+jobtype = int(input("please input your job type(1.TS? 2.opt? 3.freq? 4.scan? 5.irc? 6.sp?) with \n"))
 
 ### the following two lines read your .xyz file and store its name 
 ifs_name= sys.argv[1]
@@ -27,7 +27,9 @@ elif jobtype == 4:
 elif jobtype == 5:
    ofs_name=ifs_name[:-4]+'_irc.com'
    chk_name=ifs_name[:-4]+'_irc.chk'
-
+elif jobtype == 5:
+   ofs_name=ifs_name[:-4]+'_sp.com'
+   chk_name=ifs_name[:-4]+'_sp.chk'
 else:
    print("no such xyz/chk file ")
    sys.exit()
@@ -60,31 +62,31 @@ ofs.write('%nprocshared=28 \n')
 ofs.write('%chk=' + chk_name + '\n')
 
 ### write functional, basis set and keywords
-if jobtype == 'TS':
+if jobtype == 1:
    if int(readxyz):
       ofs.write('#p B3LYP/gen opt=(calcfc,ts,noeigentest) \n')
    else:
       ofs.write('#p B3LYP/gen opt=(readfc,ts,noeigentest) geom=check guess=read \n')
 
-elif jobtype == 'opt':
+elif jobtype == 2:
      if int(readxyz):
         ofs.write('#p B3lyp/gen opt \n')
      else:
         ofs.write('#p b3lyp/gen opt=readfc geom=check guess=read \n')
 
-elif jobtype == 'freq':
+elif jobtype == 3:
      if int(readxyz):
         ofs.write('#p b3lyp/gen freq \n')
      else:
         ofs.write('#p b3lyp/gen freq geom=check guess=read\n')
 
-elif jobtype == 'scan':
+elif jobtype == 4:
      if int(readxyz):
         ofs.write('#p b3lyp/gen opt=(modredundant,maxcycle=15) \n')
      else:
         ofs.write('#p b3lyp/gen opt=(modredundant,maxcycle=15) geom=check guess=read \n')
 
-elif jobtype == 'irc':
+elif jobtype == 5:
      if int(readxyz):
         ofs.write('#p b3lyp/gen irc=(calcfc,MaxPoints=20,stepsize=10) nosym  \n')
      else:
